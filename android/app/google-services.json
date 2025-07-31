@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "174987497334",
+    "project_id": "eventmanagement-2a410",
+    "storage_bucket": "eventmanagement-2a410.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174987497334:android:4eb6ee83e5b61a84b4b457",
+        "android_client_info": {
+          "package_name": "com.example.notesheet_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfmEdcB9zBAzL4Uc7jNxJiMfcNhNHFbzA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
