@@ -318,13 +318,14 @@ class NotesheetService {
           lastStatusChangeAt: DateTime.now(), // Sudo status change time
         );
 
-        final newSudoDocRef = _firestore
-            .collection('notesheets')
-            .add(sudoNotesheet.toMap());
+        // Generate a new document ID for the sudo notesheet
+        final newSudoDocRef = _firestore.collection('notesheets').doc();
+        // 3. Create the "sudo" notesheet using the generated reference
+        transaction.set(newSudoDocRef, sudoNotesheet.toMap());
 
-        // 3. Link the original notesheet to the sudo notesheet
+        // 4. Link the original notesheet to the sudo notesheet
         transaction.update(originalNotesheetRef, {
-          'hodSuggestedChangesNotesheetId': (await newSudoDocRef).id,
+          'hodSuggestedChangesNotesheetId': newSudoDocRef.id,
         });
       });
     } catch (e) {
@@ -382,7 +383,7 @@ class NotesheetService {
               DateTime.now(), // New creation time for the "new" notesheet
           lastStatusChangeAt: DateTime.now(), // New status change time
         );
-        final newPermanentDocRef = await _firestore
+        final docRef = await _firestore
             .collection('notesheets')
             .add(newPermanentNotesheet.toMap());
 
